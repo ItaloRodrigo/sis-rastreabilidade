@@ -10,10 +10,12 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     public function create(RequestCreateUser $request){
-        dd($request);
         // $validator = $request->validated();
 
-        return response()->json(["erros"=> $request],500);
+        // dd($request);
+        // $validated = $request->validated();
+
+        return response()->json(["erros"=> "teste"],500);
         //---
         // User::create([
         //     'name' => $request->name,

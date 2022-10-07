@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class RequestCreateUser extends FormRequest
 {
+    protected $redirect = '/api/user/create';
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +14,7 @@ class RequestCreateUser extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
