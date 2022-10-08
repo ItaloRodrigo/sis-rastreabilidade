@@ -25,7 +25,7 @@ class RequestCreateUser extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|min:5',
             'email' => 'required|email',
             'password' => 'required',
         ];
@@ -34,7 +34,7 @@ class RequestCreateUser extends FormRequest
     public function messages(){
         return [
             'email.email' => 'Email inválido!',
-            // 'name.min' => 'Mínimo inválido!',
+            'name.min' => 'Mínimo inválido!',
         ];
     }
 }
