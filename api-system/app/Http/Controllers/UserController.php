@@ -7,6 +7,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class UserController extends Controller
@@ -18,7 +19,7 @@ class UserController extends Controller
         // $validated = $request->validated();
         try{
             return response()->json(["erros"=> "deu tudo certo"],200);
-        }catch(Throwable $e){
+        }catch(ValidationException $e){
             return response()->json(["erros"=> "deu tudo errado!"],500);
         }
 
