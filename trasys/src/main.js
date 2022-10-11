@@ -4,11 +4,28 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-import './assets/main.css'
+import 'bootstrap/dist/css/bootstrap.css';
+import bootstrap from 'bootstrap/dist/js/bootstrap.js';
+
+// import './assets/main.css'
+// import Layouts
+import BaseLayout from "@/layouts/BaseLayout.vue";
+
+// import Provide
+import auth_store from "./stores/auth";
 
 const app = createApp(App)
 
+app.use(bootstrap);
 app.use(createPinia())
 app.use(router)
+
+app.use({
+    install(app, options) {
+      app.config.globalProperties.$auth = auth_store();
+    },
+});
+
+app.component("base-layout",BaseLayout);
 
 app.mount('#app')
