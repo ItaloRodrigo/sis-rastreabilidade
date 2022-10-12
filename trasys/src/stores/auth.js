@@ -8,7 +8,8 @@ export default defineStore({
   }),
   getters: {
     isAuth(state) {
-      return state.user != null;
+      return true;
+      // return state.user != null;
     },
     getName(state) {
       if (state.user != null)
