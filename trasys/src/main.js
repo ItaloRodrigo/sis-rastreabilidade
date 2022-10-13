@@ -10,6 +10,7 @@ import bootstrap from 'bootstrap/dist/js/bootstrap.js';
 // import './assets/main.css'
 // import Layouts
 import BaseLayout from "@/layouts/BaseLayout.vue";
+import BaseFullLayout from "@/layouts/BaseFullLayout.vue";
 
 // import Provide
 import auth_store from "./stores/auth";
@@ -27,5 +28,6 @@ app.use({
 });
 
 app.component("base-layout",BaseLayout);
+app.component("base-fulllayout",BaseFullLayout);
 
 app.mount('#app')
