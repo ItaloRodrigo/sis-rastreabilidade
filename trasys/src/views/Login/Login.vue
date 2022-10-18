@@ -14,6 +14,10 @@ export default {
 
 <template>
   <base-fulllayout>
-    <p>Teste de clicj</p>
+    <div clas="row">
+      <div class="col-lg-12">
+        hgjhgj
+      </div>
+    </div>
   </base-fulllayout>
 </template>
