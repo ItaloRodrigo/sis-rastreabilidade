@@ -3,11 +3,16 @@ export default {
   name:"Login",
   data(){
     return {
-      
+      texto:""
     }
   },
+  mounted() {
+    this.texto = "initial";
+  },
   methods:{
-    
+    login(){
+      this.texto = 'teste';
+    }
   }
 }
 </script>
@@ -16,7 +21,8 @@ export default {
   <base-fulllayout>
     <div clas="row">
       <div class="col-lg-12">
-        hgjhgj
+        {{texto}}
+        <button class="btn btn-primary" @click="login">Login</button>
       </div>
     </div>
   </base-fulllayout>
