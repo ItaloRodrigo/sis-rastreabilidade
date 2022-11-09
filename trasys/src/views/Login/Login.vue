@@ -1,16 +1,16 @@
 <script>
 export default {
-  name:"Login",
-  data(){
+  name: "Login",
+  data() {
     return {
-      texto:""
+      texto: ""
     }
   },
   mounted() {
     this.texto = "initial";
   },
-  methods:{
-    login(){
+  methods: {
+    login() {
       this.texto = 'teste';
     }
   }
@@ -19,10 +19,19 @@ export default {
 
 <template>
   <base-fulllayout>
-    <div clas="row">
-      <div class="col-lg-12">
-        {{texto}}
-        <button class="btn btn-primary" @click="login">Login</button>
+    <div class="container border border-primary">
+      <div clas="row align-items-center">
+        <div class="col border border-dark align-self-center">
+          {{ texto }}
+          dsgjsldgkjslkg
+          dsgjsldgkjslkg
+          dsgjsldgkjslkg
+          dsgjsldgkjslkg
+          dsgjsldgkjslkg
+          dsgjsldgkjslkg
+          
+          <button class="btn btn-primary" @click="login">Login</button>
+        </div>
       </div>
     </div>
   </base-fulllayout>
