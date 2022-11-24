@@ -31,7 +31,7 @@ export default defineStore({
   },
   actions: {
     async login(user) {
-      
+      return false;
     },
     async logout(){
 

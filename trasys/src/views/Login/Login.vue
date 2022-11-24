@@ -3,16 +3,19 @@ export default {
   name: "Login",
   data() {
     return {
-      email:"",
-      senha:""
+      user:{
+        email:null,
+        senha:null
+      }
     }
   },
   mounted() {
-    this.email = "initial";
+    this.user.email = "initial";
   },
   methods: {
     autenticacao() {
-      console.log("teste")
+      const vok = this.$auth.login(this.user);
+      console.log(vok)
     }
   }
 }
@@ -30,34 +33,32 @@ export default {
               <div class="row g-0">
                 <div class="col-lg-6">
                   <div class="card-body p-md-5 mx-md-4">
-
                     <div class="text-center">
                       <img src="/assets/intelbras-logo.svg" alt="Logo da Intelbras" style="width: 200px;">
                       <h5 class="mt-1 mb-5 pb-1 text-muted">traceability system</h5>
                     </div>
-                    {{email}}
-                    <!-- <form> -->
+                    <form>
                       <p class="text-muted">Por favor faça login com a sua conta</p>
                       <div class="form-floating mb-3">
-                        <input type="email" v-model="email" class="form-control" id="email" placeholder="name@example.com">
+                        <input type="email" v-model="user.email" class="form-control" id="email" placeholder="name@example.com">
                         <label for="email">Email address</label>
                       </div>
                       <div class="form-floating mb-3">
-                        <input type="password" v-model="senha" class="form-control" id="senha" placeholder="******">
+                        <input type="password" v-model="user.senha" class="form-control" id="senha" placeholder="******">
                         <label for="senha">Senha</label>
                       </div>
 
                       <div class="text-center pt-1 mb-5 pb-1">
-                        <button class="btn btn-primary btn-block w-100 fa-lg mb-3" type="button">Log
+                        <button @click="autenticacao()" class="btn btn-primary btn-block w-100 fa-lg mb-3" type="button">Log
                           in</button>
                         <a class="text-muted" href="#!">Esqueceu a senha?</a>
                       </div>
 
                       <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Não tem uma conta?</p>
-                        <button class="btn btn-outline-danger" v-on:click="autenticacao()">Crie uma conta</button>
+                        <button class="btn btn-outline-danger" >Crie uma conta</button>
                       </div>
-                    <!-- </form> -->
+                    </form>
 
                   </div>
                 </div>
