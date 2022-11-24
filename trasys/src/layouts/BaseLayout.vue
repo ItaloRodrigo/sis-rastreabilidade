@@ -11,7 +11,7 @@
     }
 </script>
 
-<style src="./styles.scss" scoped></style>
+<style src="./styles.scss"></style>
 
 
 <template>
