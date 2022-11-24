@@ -1,18 +1,18 @@
-<script>
+<script scoped>
 export default {
   name: "Login",
   data() {
     return {
-      email:null,
-      login:null
+      email:"",
+      senha:""
     }
   },
   mounted() {
     this.email = "initial";
   },
   methods: {
-    login() {
-      this.email = 'teste';
+    autenticacao() {
+      console.log("teste")
     }
   }
 }
@@ -35,8 +35,8 @@ export default {
                       <img src="/assets/intelbras-logo.svg" alt="Logo da Intelbras" style="width: 200px;">
                       <h5 class="mt-1 mb-5 pb-1 text-muted">traceability system</h5>
                     </div>
-                    {{this.email}}
-                    <form>
+                    {{email}}
+                    <!-- <form> -->
                       <p class="text-muted">Por favor faça login com a sua conta</p>
                       <div class="form-floating mb-3">
                         <input type="email" v-model="email" class="form-control" id="email" placeholder="name@example.com">
@@ -55,9 +55,9 @@ export default {
 
                       <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Não tem uma conta?</p>
-                        <button type="button" @click="login()" class="btn btn-outline-danger">Crie uma conta</button>
+                        <button class="btn btn-outline-danger" v-on:click="autenticacao()">Crie uma conta</button>
                       </div>
-                    </form>
+                    <!-- </form> -->
 
                   </div>
                 </div>

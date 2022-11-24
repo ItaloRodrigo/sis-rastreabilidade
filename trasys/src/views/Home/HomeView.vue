@@ -1,4 +1,4 @@
-<script>
+<script scoped>
 export default {
   name:"Home",
   data(){
@@ -10,6 +10,7 @@ export default {
     clicked(){
       this.$auth.increment();
       this.counter = this.$auth.getCounter;
+      console.log("teste");
       // this.$auth.persist.storage.setItem("counter",this.counter);
     }
   }

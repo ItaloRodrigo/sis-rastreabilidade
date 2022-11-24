@@ -1,4 +1,4 @@
-<script>
+<script scoped>
     export default {
         name: "BaseFullLayout",
         data() {
