@@ -10,6 +10,10 @@
         
     }
 </script>
+
+<style src="./styles.scss" scoped></style>
+
+
 <template>
     <main>
         <!-- Cabeçalho da base layout -->

@@ -43,12 +43,7 @@ export default {
 }
 </style> -->
 
-<style lang="scss" scoped>
-  $primary-color: #333;
-  body {
-    color: $primary-color;
-  }
-</style>
+<style src="./styles.scss" lang="scss" scoped></style>
 
 <template>
   <base-fulllayout>

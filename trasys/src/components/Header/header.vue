@@ -39,7 +39,7 @@ export default {
                 <div class="col-2 offset-lg-4 offset-sm-3 offset-md-3 text-center">
                     <div class="navbar-header">
                         <router-link to="/" class="navbar-brand">
-                            <img src="/static/assets/logo.svg" alt="Logo da Intelbras" style="width: 65px;">
+                            <img src="/assets/intelbras-logo.svg" alt="Logo da Intelbras" style="width: 65px;">
                         </router-link>
                     </div>
                 </div>
