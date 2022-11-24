@@ -20,7 +20,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  document.title = to.name;
+  document.title = import.meta.env.VITE_TITLE+" - "+to.name;
   //---
   const store = auth_store();
   //---

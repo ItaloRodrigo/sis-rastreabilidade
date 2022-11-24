@@ -33,8 +33,24 @@ export default defineStore({
     async login(user) {
       
     },
+    async logout(){
+
+    },
+    async refresh(){
+
+    },
     increment (){
       this.counter = this.counter +1;
     }
-  }
+  },
+  persist: true
+  // persist: {
+  //   key: "auth",
+  //   enable:true,
+  //   storage: {      
+  //     getItem: (key) => Cookies.get(key),
+  //     setItem: (key, value) => Cookies.set(key, value),
+  //     removeItem: (key) => Cookies.remove(key),
+  //   },
+  // },
 });

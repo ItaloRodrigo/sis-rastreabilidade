@@ -10,6 +10,7 @@ export default {
     clicked(){
       this.$auth.increment();
       this.counter = this.$auth.getCounter;
+      // this.$auth.persist.storage.setItem("counter",this.counter);
     }
   }
 }
