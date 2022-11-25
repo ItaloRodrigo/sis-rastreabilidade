@@ -8,8 +8,7 @@ export default defineStore({
   }),
   getters: {
     isAuth(state) {
-      return false;
-      // return state.user != null;
+      return state.user != null;
     },
     getName(state) {
       if (state.user != null)
@@ -31,10 +30,14 @@ export default defineStore({
   },
   actions: {
     async login(user) {
+      if(user){
+        this.user = user;
+        return true;
+      }
       return false;
     },
     async logout(){
-
+      this.user = null;
     },
     async refresh(){
 

@@ -19,7 +19,7 @@ export default {
         <!-- 
             seção navbar
          -->
-        <nav class="navbar bg-success mb-0" name="base-layout">
+        <nav class="navbar bg-primary mb-0" name="base-layout">
             <div class="container-fluid">
                 <button class="navbar-toggler border border-white" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
@@ -39,7 +39,7 @@ export default {
                 <div class="col-2 offset-lg-4 offset-sm-3 offset-md-3 text-center">
                     <div class="navbar-header">
                         <router-link to="/" class="navbar-brand">
-                            <img src="/assets/intelbras-logo.svg" alt="Logo da Intelbras" style="width: 65px;">
+                            <img src="/assets/intelbras-logov.png" alt="Logo da Intelbras" style="width: 100px;">
                         </router-link>
                     </div>
                 </div>

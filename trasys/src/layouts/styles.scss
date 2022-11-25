@@ -3,6 +3,10 @@
 
 $primary: rgb(65, 218, 65);
 
+.body{
+    background: #eee;
+    height: 100vh !important;
+}
 
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

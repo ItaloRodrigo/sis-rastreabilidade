@@ -11,7 +11,7 @@
 <style src="./styles.scss"></style>
 
 <template>
-    <main>
+    <main style="background-color: #eee;">
         <!-- Cabeçalho da base layout -->
                 
         <!-- Conteúdo de página -->

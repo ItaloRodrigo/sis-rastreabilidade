@@ -13,9 +13,11 @@ export default {
     this.user.email = "initial";
   },
   methods: {
-    autenticacao() {
-      const vok = this.$auth.login(this.user);
-      console.log(vok)
+    async autenticacao() {
+      const vok = await this.$auth.login(this.user);
+      if(vok){
+        this.$router.push("/");
+      }      
     }
   }
 }
@@ -34,17 +36,17 @@ export default {
                 <div class="col-lg-6">
                   <div class="card-body p-md-5 mx-md-4">
                     <div class="text-center">
-                      <img src="/assets/intelbras-logo.svg" alt="Logo da Intelbras" style="width: 200px;">
+                      <img src="/assets/intelbras-logov.png" alt="Logo da Intelbras" style="width: 200px;">
                       <h5 class="mt-1 mb-5 pb-1 text-muted">traceability system</h5>
                     </div>
-                    <form>
+                    <!-- <form> -->
                       <p class="text-muted">Por favor faça login com a sua conta</p>
                       <div class="form-floating mb-3">
-                        <input type="email" v-model="user.email" class="form-control" id="email" placeholder="name@example.com">
+                        <input type="email" @keyup.enter="autenticacao()" v-model="user.email" class="form-control" id="email" placeholder="name@example.com">
                         <label for="email">Email address</label>
                       </div>
                       <div class="form-floating mb-3">
-                        <input type="password" v-model="user.senha" class="form-control" id="senha" placeholder="******">
+                        <input type="password" @keyup.enter="autenticacao()" v-model="user.senha" class="form-control" id="senha" placeholder="******">
                         <label for="senha">Senha</label>
                       </div>
 
@@ -58,7 +60,7 @@ export default {
                         <p class="mb-0 me-2">Não tem uma conta?</p>
                         <button class="btn btn-outline-danger" >Crie uma conta</button>
                       </div>
-                    </form>
+                    <!-- </form> -->
 
                   </div>
                 </div>
