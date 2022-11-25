@@ -19,9 +19,9 @@ export default {
         <!-- 
             seção navbar
          -->
-        <nav class="navbar bg-primary mb-0" name="base-layout">
+        <nav class="navbar bg-light mb-0" name="base-layout">
             <div class="container-fluid">
-                <button class="navbar-toggler border border-white" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler border border-primary" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -54,7 +54,7 @@ export default {
                                         style="width: 20px; height: 16px;">
                                 </button> -->
                                 <router-link to="/"
-                                    class="btn btn-success shadow m-0 d-inline-flex">
+                                    class="btn btn-primary shadow m-0 d-inline-flex">
                                     <i class="fa fa-user pe-1"></i>
                                     <span class="d-none d-lg-block d-xl-block d-xxl-block">
                                         User
