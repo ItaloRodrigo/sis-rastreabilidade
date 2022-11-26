@@ -46,13 +46,14 @@ export default {
                         <router-link to="/" class="navbar-brand">
                             <figure class="figure p-0 m-0 text-center">
                                 <img src="/assets/intelbras-logov.png" alt="Logo da Intelbras" style="width: 100px;">
-                                <figcaption class="figure-caption text-muted " style="font-size:0.7em;">traceability system</figcaption>
-                              </figure>
-                            
+                                <figcaption class="figure-caption text-muted " style="font-size:0.7em;">
+                                    traceability system
+                                </figcaption>
+                            </figure>
                         </router-link>
 
                     </div>
-                    
+
                 </div>
 
                 <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 mt-1">
