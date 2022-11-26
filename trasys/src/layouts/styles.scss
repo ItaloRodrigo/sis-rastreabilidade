@@ -8,6 +8,10 @@ $primary: rgb(65, 218, 65);
     height: 100vh !important;
 }
 
+.card .card-header{
+    background: linear-gradient(to right, #86ee24, #36d8af, #3cdd36, #6c9062);;
+}
+
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 

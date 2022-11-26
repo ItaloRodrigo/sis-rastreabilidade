@@ -18,14 +18,8 @@ export default {
 </script>
 
 <template>
-  <base-layout>
-    <div class="container-fluid py-5 px-5 h-100">
-      <div class="row border border-dark h-100">
-        <div class="col-lg-12">
-          <button class="btn btn-primary" @click="clicked()">Click {{counter}}</button>
-        </div>
-      </div>
-    </div>
+  <base-layout titlecard="teste">
+  <button class="btn btn-primary" @click="clicked()">Click {{counter}}</button>
     
   </base-layout>
 </template>
