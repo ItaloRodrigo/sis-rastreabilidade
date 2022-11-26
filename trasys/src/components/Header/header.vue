@@ -8,7 +8,12 @@ export default {
         return {
 
         }
-    }
+    },
+    methods: {
+        logout() {
+            alert("Logout");
+        }
+    },
 }
 </script>
 
@@ -39,9 +44,15 @@ export default {
                 <div class="col-2 offset-lg-4 offset-sm-3 offset-md-3 text-center">
                     <div class="navbar-header">
                         <router-link to="/" class="navbar-brand">
-                            <img src="/assets/intelbras-logov.png" alt="Logo da Intelbras" style="width: 100px;">
+                            <figure class="figure p-0 m-0 text-center">
+                                <img src="/assets/intelbras-logov.png" alt="Logo da Intelbras" style="width: 100px;">
+                                <figcaption class="figure-caption text-muted " style="font-size:0.7em;">traceability system</figcaption>
+                              </figure>
+                            
                         </router-link>
+
                     </div>
+                    
                 </div>
 
                 <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 mt-1">
@@ -53,8 +64,7 @@ export default {
                                     <img :src="'/static/lang/' + locale.toLowerCase() + '.png'"
                                         style="width: 20px; height: 16px;">
                                 </button> -->
-                                <router-link to="/"
-                                    class="btn btn-primary shadow m-0 d-inline-flex">
+                                <router-link to="/" class="btn btn-primary shadow m-0 d-inline-flex">
                                     <i class="fa fa-user pe-1"></i>
                                     <span class="d-none d-lg-block d-xl-block d-xxl-block">
                                         User

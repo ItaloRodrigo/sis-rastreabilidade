@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <base-layout titlecard="teste">
+  <base-layout titlecard="Home">
   <button class="btn btn-primary" @click="clicked()">Click {{counter}}</button>
     
   </base-layout>

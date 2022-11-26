@@ -27,7 +27,8 @@ export default {
                     <div class="card border-0">
                         <div v-if="this.$route.path == '/'" class="card-header">
                             <h5 class="text-dark">
-                                <span class="fw-bold">{{ titlecard }}</span> - {{this.$route.path}}
+                                <span class="fw-bold">{{ titlecard }}</span> 
+                                <!-- - {{this.$route.path}} -->
                             </h5>
                         </div>
                         <div class="card-body">
