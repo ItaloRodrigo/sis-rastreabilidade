@@ -19,7 +19,13 @@ export default {
 
 <template>
   <base-layout titlecard="Home">
-  <button class="btn btn-primary" @click="clicked()">Click {{counter}}</button>
+  
+    <div class="row">
+      <!-- vh-100 -->
+      <div class="col-lg-12"> 
+        <button class="btn btn-primary" @click="clicked()">Click {{counter}}</button>
+      </div>
+    </div>
     
   </base-layout>
 </template>

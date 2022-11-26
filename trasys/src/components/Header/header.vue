@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-    <main class="main-content position-relative max-height-vh-100 h-100 mb-10">
+    <section >
         <!-- <router-link to="/">Home</router-link>
         <router-link to="/about">About</router-link> -->
         <!-- 
@@ -118,26 +118,5 @@ export default {
                 </ul>
             </div>
         </div>
-        <!-- 
-        
-        <div class="container-fluid bg-white mx-0 border-bottom border-success d-flex" name="base-layout">
-            <nav aria-label="breadcrumb" class="d-flex align-items-center">
-                <button id="id_voltar_button" class="btn btn-sm btn-primary mt-1 my-1" @click="selfback">
-                    {{ $t('Voltar') }}
-                </button>
-                <slot name="breadcrumb">
-                    <ol class="breadcrumb m-1 bg-white text-white rounded-0 text-dark ">
-                        <li class="breadcrumb-item text-sm">
-                            <a class="opacity-5 text-dark" href="">
-                                {{ $t('Início') }}
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item text-sm text-dark active font-weight-bolder" aria-current="page">
-                            {{ $t('Dashboard') }}
-                        </li>
-                    </ol>
-                </slot>
-            </nav>
-        </div> -->
-    </main>
+    </section>
 </template>

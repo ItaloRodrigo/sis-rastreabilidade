@@ -7,7 +7,7 @@ export default {
 <style src="./styles.scss"></style>
 
 <template>
-    <div class="container-fluid mh-100 bg-white">
+    <div class="container-fluid bg-white border-top">
         <div class="row pt-5 px-2">
             <div class="col-lg-3">
                 <figure class="figure p-0 m-0 text-center">

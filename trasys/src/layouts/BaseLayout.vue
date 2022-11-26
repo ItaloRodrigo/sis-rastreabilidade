@@ -16,13 +16,13 @@ export default {
 
 </style>
 
-
 <template>
-    <main class="h-100" style="background-color: #eee;">
+    <!-- <main class="h-100 vh-100" style="background-color: #eee;"> -->
+        <main class="main-content position-relative max-height-vh-100 h-100 mb-10" style="background-color: #eee;">
         <!-- Cabeçalho da base layout -->
-        <Header title="teste 2 de header"></Header>        
-        <div class="container-fluid py-4 h-100">
-            <div class="row h-100">
+        <Header></Header>        
+        <div class="container-fluid py-4">
+            <div class="row">
                 <div class="col-lg-12 m-0">
                     <div class="card border-0">
                         <div v-if="this.$route.path == '/'" class="card-header">
@@ -33,7 +33,7 @@ export default {
                         </div>
                         <div class="card-body">
                             <!-- slot conteúdo -->
-                            <slot class="body h-100"></slot>
+                            <slot class="body"></slot>
                             <!-- fim slot conteúdo -->
                         </div>
                     </div>
@@ -43,6 +43,6 @@ export default {
 
 
         <!-- Rodapé -->
-        <Footer></Footer>
+        <Footer style="background-color: #eee;"></Footer>
     </main>
 </template>
