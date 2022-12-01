@@ -21,24 +21,21 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-        // $credentials = $request->all();
+        $credentials = $request->only('matricula', 'password');
+        $remember = $request->input('remember');
 
-        if (Auth::attempt([
-            "email" => $credentials["email"],
-            "password" =>bcrypt($credentials["password"])
-        ])) {
-            // $request->session()->regenerate();
-
-            // return redirect()->intended('dashboard');
+        // return "ok";
+        if (Auth::attempt($credentials,$remember)) {
+            // $user = User::create($credentials);
             return [
                 "credentials" => $credentials,
+                "user" => Auth::viaRemember(),
                 "message" => "ok"
             ];
         }else{
             return [
                 "credentials" => $credentials,
-                "message" => "nok"
+                "message" => "NOK"
             ];
         }
 
