@@ -40,4 +40,22 @@ class LoginController extends Controller
             ];
         }
     }
+
+    public function logout(Request $request){
+        $id = $request->input('id');
+        $user = Auth::loginUsingId($id);
+        $ok = Auth::logout();
+
+        // $request->user()->currentAccessToken()->delete();
+        // $user->tokens()->delete();
+
+        // $request->session()->invalidate();
+
+        // $request->session()->regenerateToken();
+
+        return [
+            "user" => $user,
+            "new user" => $ok
+        ];
+    }
 }
