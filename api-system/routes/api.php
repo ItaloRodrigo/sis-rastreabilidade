@@ -24,6 +24,7 @@ Route::prefix('user')->group(function(){
 Route::prefix('auth')->group(function(){
     Route::post('login', [LoginController::class,'authenticate']);
     Route::get('logout', [LoginController::class,'logout']);
+    Route::get('isloged', [LoginController::class,'isLoged']);
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

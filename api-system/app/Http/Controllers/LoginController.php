@@ -28,9 +28,9 @@ class LoginController extends Controller
             $user = $request->user();
             return [
                 "credentials" => $credentials,
-                "user" => Auth::user(),
+                "user" => $user,
                 "current_token" => $user->createToken("token")->plainTextToken,
-                "tokens" => $user->tokens(),
+                "tokens" => User::find($user->id)->tokens(),
                 "message" => "ok"
             ];
         }else{
@@ -43,19 +43,31 @@ class LoginController extends Controller
 
     public function logout(Request $request){
         $id = $request->input('id');
-        $user = Auth::loginUsingId($id);
+        $user = User::find($id);
+
+        $user->tokens()->delete();
+
         $ok = Auth::logout();
 
-        // $request->user()->currentAccessToken()->delete();
-        // $user->tokens()->delete();
-
-        // $request->session()->invalidate();
-
-        // $request->session()->regenerateToken();
 
         return [
             "user" => $user,
             "new user" => $ok
+        ];
+    }
+
+    public function isLoged(Request $request){
+        $id = $request->input('id');
+        $user = User::find($id);
+        //---
+        if($user->tokens() != null){
+            return [
+                "loged" => true,
+                "tokens" => $user->tokens()->where('tokenable_id', $id)
+            ];
+        }
+        return [
+            "loged" => false
         ];
     }
 }
