@@ -23,13 +23,14 @@ class LoginController extends Controller
     {
         $credentials = $request->only('matricula', 'password');
         $remember = $request->input('remember');
-
-        // return "ok";
+        //---
         if (Auth::attempt($credentials,$remember)) {
-            // $user = User::create($credentials);
+            $user = $request->user();
             return [
                 "credentials" => $credentials,
-                "user" => Auth::viaRemember(),
+                "user" => Auth::user(),
+                "current_token" => $user->createToken("token")->plainTextToken,
+                "tokens" => $user->tokens(),
                 "message" => "ok"
             ];
         }else{
@@ -38,11 +39,5 @@ class LoginController extends Controller
                 "message" => "NOK"
             ];
         }
-
-
-
-        // return back()->withErrors([
-        //     'email' => 'The provided credentials do not match our records.',
-        // ])->onlyInput('email');
     }
 }
