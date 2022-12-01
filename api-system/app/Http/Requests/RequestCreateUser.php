@@ -26,6 +26,7 @@ class RequestCreateUser extends FormRequest
     {
         return [
             'name' => 'required|min:5',
+            'matricula' => 'required|min:3',
             'email' => 'required|email',
             'password' => 'required',
         ];
@@ -33,8 +34,9 @@ class RequestCreateUser extends FormRequest
 
     public function messages(){
         return [
-            'email.email' => 'Email inválido!',
-            'name.min' => 'Mínimo inválido!',
+            'email.email' => 'Email: endereço inválido!',
+            'matricula.min' => 'Matrícula: mínimo inválido!',
+            'name.min' => 'Nome: Mínimo inválido!',
         ];
     }
 }

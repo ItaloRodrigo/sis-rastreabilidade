@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('user')->group(function(){
     Route::get('teste', [UserController::class,'teste']);
     Route::post('create', [UserController::class,'create']);
+});
+
+Route::prefix('auth')->group(function(){
+    Route::post('login', [LoginController::class,'authenticate']);
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -14,21 +14,35 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    private function compare(){
+
+    }
+
     public function authenticate(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
+        $credentials = $request->only('email', 'password');
+        // $credentials = $request->all();
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt([
+            "email" => $credentials["email"],
+            "password" =>bcrypt($credentials["password"])
+        ])) {
             // $request->session()->regenerate();
 
             // return redirect()->intended('dashboard');
-            return "usuário ok";
+            return [
+                "credentials" => $credentials,
+                "message" => "ok"
+            ];
+        }else{
+            return [
+                "credentials" => $credentials,
+                "message" => "nok"
+            ];
         }
 
-        return "usuário nok!";
+
 
         // return back()->withErrors([
         //     'email' => 'The provided credentials do not match our records.',

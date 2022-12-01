@@ -12,28 +12,30 @@ use Throwable;
 
 class UserController extends Controller
 {
-    public function create(RequestCreateUser $request){
+    public function create(RequestCreateUser $request)
+    {
         // $validator = $request->validated();
 
         // dd($request);
         // $validated = $request->validated();
-        try{
-            return response()->json(["erros"=> "deu tudo certo"],200);
-        }catch(ValidationException $e){
-            return response()->json(["erros"=> "deu tudo errado!"],500);
+        try {
+            $user = User::create([
+                'name' => $request->name,
+                'matricula' => $request->matricula,
+                'email' => $request->email,
+                'password' => bcrypt($request->password)
+            ]);
+            return response()->json([
+                "request" => $request,
+                "user" => $user
+            ], 200);
+        } catch (ValidationException $e) {
+            return response()->json(["erros" => "deu errado!"], 500);
         }
-
-
-        //---
-        // User::create([
-        //     'name' => $request->name,
-        //     'email'=> $request->email,
-        //     'password'=> $request->password
-        // ]);
-        // return response()->json($request,200);
     }
 
-    public function teste(){
+    public function teste()
+    {
         return "ok";
         // return response()->json(['ok'=>'teste']);
     }
