@@ -16,12 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:sanctum')->prefix('auth')->group(function(Request $request){
-//     Route::get('isloged', [LoginController::class,'isLoged']);
-//     Route::get('/user', function (Request $request) {
-//         return $request->user();
-//     });
-// }); //15|vGjH9DdliFzRNx8vZL69v2nGXevPzMDRr5xCtahf
 
 Route::prefix('user')->group(function(){
     Route::get('teste', [UserController::class,'teste']);
@@ -42,6 +36,3 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 }); //15|vGjH9DdliFzRNx8vZL69v2nGXevPzMDRr5xCtahf
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
