@@ -16,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::middleware('auth:sanctum')->prefix('auth')->group(function(Request $request){
+//     Route::get('isloged', [LoginController::class,'isLoged']);
+//     Route::get('/user', function (Request $request) {
+//         return $request->user();
+//     });
+// }); //15|vGjH9DdliFzRNx8vZL69v2nGXevPzMDRr5xCtahf
+
 Route::prefix('user')->group(function(){
     Route::get('teste', [UserController::class,'teste']);
     Route::post('create', [UserController::class,'create']);
@@ -24,8 +31,16 @@ Route::prefix('user')->group(function(){
 Route::prefix('auth')->group(function(){
     Route::post('login', [LoginController::class,'authenticate']);
     Route::get('logout', [LoginController::class,'logout']);
-    Route::get('isloged', [LoginController::class,'isLoged']);
 });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::prefix('auth')->group(function(){
+        Route::get('isloged', [LoginController::class,'isLoged']);
+    });
+}); //15|vGjH9DdliFzRNx8vZL69v2nGXevPzMDRr5xCtahf
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();

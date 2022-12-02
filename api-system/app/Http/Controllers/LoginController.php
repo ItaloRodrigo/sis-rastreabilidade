@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PersonalAccessToken;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,10 +16,6 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    private function compare(){
-
-    }
-
     public function authenticate(Request $request)
     {
         $credentials = $request->only('matricula', 'password');
@@ -26,6 +23,10 @@ class LoginController extends Controller
         //---
         if (Auth::attempt($credentials,$remember)) {
             $user = $request->user();
+            //---
+            if($this->logged($user->id)['loged']){
+                User::find($user->id)->tokens()->delete();
+            }
             return [
                 "credentials" => $credentials,
                 "user" => $user,
@@ -43,31 +44,38 @@ class LoginController extends Controller
 
     public function logout(Request $request){
         $id = $request->input('id');
-        $user = User::find($id);
-
-        $user->tokens()->delete();
-
-        $ok = Auth::logout();
-
-
+        //---
+        User::find($id)->tokens()->delete();
+        //---
+        Auth::logout();
+        //---
         return [
-            "user" => $user,
-            "new user" => $ok
+            "logout" => true,
         ];
     }
 
     public function isLoged(Request $request){
         $id = $request->input('id');
-        $user = User::find($id);
-        //---
-        if($user->tokens() != null){
+
+        if($this->logged($id)['loged']){
             return [
                 "loged" => true,
-                "tokens" => $user->tokens()->where('tokenable_id', $id)
+                "user" => $request->user(),
+                "token" => $request->user()->currentAccessToken(),
+                "tokens" => $this->logged($id)['tokens']
             ];
         }
         return [
             "loged" => false
+        ];
+    }
+
+    private function logged($id){
+        $tokens = PersonalAccessToken::where("tokenable_id",$id)->get();
+        //---
+        return [
+            "loged" =>(count($tokens) > 0)?true:false,
+            "tokens" => $tokens
         ];
     }
 }
