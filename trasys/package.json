@@ -2,7 +2,7 @@
   "name": "trasys",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --port 8001",
+    "dev": "vite --port 8000",
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom",
@@ -11,6 +11,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "axios": "^1.2.0",
     "bootstrap": "^5.2.2",
     "jquery": "^3.6.1",
     "js-cookie": "^3.0.1",

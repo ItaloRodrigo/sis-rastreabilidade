@@ -5,13 +5,14 @@ export default {
     return {
       errors: [],
       user: {
-        email: null,
+        matricula: null,
         senha: null
       }
     }
   },
   mounted() {
-    this.user.email = "initial";
+    this.user.matricula = "001";
+    this.user.senha = "@itautec123";
   },
   methods: {
     validateEmail() {
@@ -38,10 +39,26 @@ export default {
     },
     async autenticacao() {
       this.errors = [];
-      if (this.validateEmail() && this.user.senha != null) {
-        const vok = await this.$auth.login(this.user);
-        if (vok) {
-          this.$router.push("/");
+      if (this.user.matricula != null && this.user.senha != null) {
+        try {
+          const user = await this.$auth.login({
+            matricula: this.user.matricula,
+            password: this.user.senha,
+            remember: false
+          });
+          if(user.logged){
+            this.$router.push({ name: "home" });
+          }
+          this.errors.push("Falha no login");
+          console.log(user);          
+        }
+        catch (erro) {
+          let data = erro.response.data || {};
+          if (erro.response.status == 400) {
+            let errors = [];
+            Object.values(data).forEach(item => item.forEach(men => errors.push(men)));
+            this.errors = errors;
+          } else except(this, erro);
         }
       } else {
         if (!this.validateEmail()) this.errors[0] = "Email inválido!";
@@ -73,14 +90,13 @@ export default {
                     <form id="form-login" @submit.prevent="autenticacao">
                       <p class="text-muted">Por favor faça login com a sua conta</p>
                       <div class="form-floating mb-3">
-                        <input type="email" @keyup.enter="autenticacao()" :class="{ 'is-invalid': errors.length > 0 }"
-                          required v-model="user.email" class="form-control" id="email" placeholder="name@example.com">
-                        <label for="email">Email address</label>
+                        <input type="text" :class="{ 'is-invalid': errors.length > 0 }" required
+                          v-model="user.matricula" class="form-control" id="matricula" placeholder="001">
+                        <label for="matricula">Matricula</label>
                       </div>
                       <div class="form-floating mb-3">
                         <input type="password" :class="{ 'is-invalid': errors.length > 0 }" required
-                          @keyup.enter="autenticacao()" v-model="user.senha" class="form-control" id="senha"
-                          placeholder="******">
+                          v-model="user.senha" class="form-control" id="senha" placeholder="******">
                         <label for="senha">Senha</label>
                         <div class="invalid-feedback">
                           <ul>

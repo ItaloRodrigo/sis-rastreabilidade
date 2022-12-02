@@ -6,8 +6,12 @@ export default {
     ],
     data() {
         return {
-
+            username:null
         }
+    },
+    mounted(){
+        this.username = (this.$auth.isAuth)?this.$auth.getName:"-";
+        console.log(this.$auth.isAuth);
     },
     methods: {
         logout() {
@@ -68,7 +72,7 @@ export default {
                                 <router-link to="/" class="btn btn-primary shadow m-0 d-inline-flex">
                                     <i class="fa fa-user pe-1"></i>
                                     <span class="d-none d-lg-block d-xl-block d-xxl-block">
-                                        User
+                                        {{username}}
                                     </span>
                                 </router-link>
                                 <router-link to="/logout" class="btn btn-white shadow m-0 d-inline-flex">

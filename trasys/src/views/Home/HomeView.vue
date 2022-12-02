@@ -7,12 +7,7 @@ export default {
     }
   },
   methods:{
-    clicked(){
-      this.$auth.increment();
-      this.counter = this.$auth.getCounter;
-      console.log("teste");
-      // this.$auth.persist.storage.setItem("counter",this.counter);
-    }
+
   }
 }
 </script>
@@ -22,8 +17,8 @@ export default {
   
     <div class="row">
       <!-- vh-100 -->
-      <div class="col-lg-12"> 
-        <button class="btn btn-primary" @click="clicked()">Click {{counter}}</button>
+      <div class="container-fluid py-4">
+
       </div>
     </div>
     

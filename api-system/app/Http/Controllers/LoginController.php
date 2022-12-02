@@ -27,18 +27,22 @@ class LoginController extends Controller
             if($this->logged($user->id)['loged']){
                 User::find($user->id)->tokens()->delete();
             }
-            return [
+            return response()->json([
                 "credentials" => $credentials,
+                "logged" => true,
                 "user" => $user,
                 "current_token" => $user->createToken("token")->plainTextToken,
                 "tokens" => User::find($user->id)->tokens(),
                 "message" => "ok"
-            ];
+            ],200);
         }else{
-            return [
-                "credentials" => $credentials,
-                "message" => "NOK"
-            ];
+            return response()->json([
+                    "credentials" => $credentials,
+                    "logged" => false,
+                    "message" => "NOK"
+                ],
+                200
+            );
         }
     }
 
@@ -47,11 +51,13 @@ class LoginController extends Controller
         //---
         User::find($id)->tokens()->delete();
         //---
-        Auth::logout();
+        // Auth::logout();
         //---
-        return [
-            "logout" => true,
-        ];
+        return response()->json([
+            "logout" => true
+        ],
+        200
+        );
     }
 
     public function isLoged(Request $request){
