@@ -9,6 +9,10 @@ export default defineStore({
   }),
   getters: {
     isAuth(state) {
+      let user = this.isLoged();
+      if(!user.loged){
+        state.user = null;
+      }
       return state.user != null;
     },
     getUser(state){
@@ -48,6 +52,16 @@ export default defineStore({
         }).catch(e => console.log(ctx, e));
       this.user = null;
       return data;
+    },
+    async isLoged(ctx={}){
+      console.log("teste");
+          // console.log(res.data);
+      await api(ctx)
+        .get("auth/isloged", {id:this.user.user.id})
+        .then((res) => {
+          
+          return res.data;
+        });
     },
     async refresh() {},
     increment() {

@@ -32,7 +32,7 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
     Route::prefix('auth')->group(function(){
-        Route::get('isloged', [LoginController::class,'isLoged']);
+        Route::get('isloged/{id}', [LoginController::class,'isLoged']);
     });
 }); //15|vGjH9DdliFzRNx8vZL69v2nGXevPzMDRr5xCtahf
 

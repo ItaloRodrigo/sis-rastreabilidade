@@ -24,11 +24,11 @@ class LoginController extends Controller
         if (Auth::attempt($credentials,$remember)) {
             $user = $request->user();
             //---
-            if($this->logged($user->id)['loged']){
+            if($this->logged($user->id)['logged']){
                 User::find($user->id)->tokens()->delete();
             }
             return response()->json([
-                "credentials" => $credentials,
+                // "credentials" => $credentials,
                 "logged" => true,
                 "user" => $user,
                 "current_token" => $user->createToken("token")->plainTextToken,
@@ -37,7 +37,7 @@ class LoginController extends Controller
             ],200);
         }else{
             return response()->json([
-                    "credentials" => $credentials,
+                    // "credentials" => $credentials,
                     "logged" => false,
                     "message" => "NOK"
                 ],
@@ -60,10 +60,10 @@ class LoginController extends Controller
         );
     }
 
-    public function isLoged(Request $request){
-        $id = $request->input('id');
+    public function isLoged(Request $request,$id){
+        // $id = $request->input('id');
 
-        if($this->logged($id)['loged']){
+        if($this->logged($id)['logged']){
             return [
                 "loged" => true,
                 "user" => $request->user(),
@@ -80,7 +80,7 @@ class LoginController extends Controller
         $tokens = PersonalAccessToken::where("tokenable_id",$id)->get();
         //---
         return [
-            "loged" =>(count($tokens) > 0)?true:false,
+            "logged" =>(count($tokens) > 0)?true:false,
             "tokens" => $tokens
         ];
     }
