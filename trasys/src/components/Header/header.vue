@@ -70,13 +70,13 @@ export default {
                                         style="width: 20px; height: 16px;">
                                 </button> -->
                                 <router-link to="/" class="btn btn-primary shadow m-0 d-inline-flex">
-                                    <i class="fa fa-user pe-1"></i>
-                                    <span class="d-none d-lg-block d-xl-block d-xxl-block">
+                                    <i class="bi bi-person-circle me-2 text-white fw-bold"></i>
+                                    <span class="d-none d-lg-block d-xl-block d-xxl-block fw-bold">
                                         {{username}}
                                     </span>
                                 </router-link>
                                 <router-link to="/logout" class="btn btn-white shadow m-0 d-inline-flex">
-                                    <i class="fa fa-sign-out pe-1"></i>
+                                    <i class="bi bi-x-square-fill me-2"></i>
                                     <span class="d-none d-lg-block d-xl-block d-xxl-block">
                                         Logout
                                     </span>

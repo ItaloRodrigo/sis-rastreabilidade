@@ -20,6 +20,7 @@ export default {
       <div class="container-fluid py-4">
         <div class="col-lg-12">
           <div class="row">
+            <!-- Usuários -->
             <div class="col-auto text-center">
               <div class="card mx-5 border border-primary">
                 <router-link :to="{ name: 'home' }">
@@ -30,6 +31,32 @@ export default {
               </div>
               <span class="d-inline-block text-truncate font-weight-bolder" style="max-width: 200px">
                 Usuários
+              </span>
+            </div>
+            <!-- Permissões -->
+            <div class="col-auto text-center">
+              <div class="card mx-5 border border-primary">
+                <router-link :to="{ name: 'home' }">
+                  <div class="px-3 py-2 ">
+                    <i class="bi bi-key" style="font-size: 3rem; color: green;"></i>
+                  </div>
+                </router-link>
+              </div>
+              <span class="d-inline-block text-truncate font-weight-bolder" style="max-width: 200px">
+                Permissões
+              </span>
+            </div>
+            <!-- Permissões -->
+            <div class="col-auto text-center">
+              <div class="card mx-5 border border-primary">
+                <router-link :to="{ name: 'home' }">
+                  <div class="px-3 py-2 ">
+                    <i class="bi bi-gear-fill" style="font-size: 3rem; color: green;"></i>
+                  </div>
+                </router-link>
+              </div>
+              <span class="d-inline-block text-truncate font-weight-bolder" style="max-width: 200px">
+                Parâmetros
               </span>
             </div>
           </div>
