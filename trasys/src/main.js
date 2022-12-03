@@ -7,6 +7,7 @@ import router from './router'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import bootstrap from 'bootstrap/dist/js/bootstrap.js';
+import bootstrap_icons from 'bootstrap-icons/font/bootstrap-icons.css';
 
 // import './assets/main.css'
 // import Layouts
@@ -19,6 +20,7 @@ import auth_store from "./stores/auth";
 const app = createApp(App)
 
 app.use(bootstrap);
+app.use(bootstrap_icons);
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 app.use(pinia)

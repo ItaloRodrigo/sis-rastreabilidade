@@ -20,23 +20,16 @@ export default {
       <div class="container-fluid py-4">
         <div class="col-lg-12">
           <div class="row">
-            <div class="col-auto text-center" >
-              <div class="card px-4 py-4 mx-5" style="width: 100px; height: 100px">
+            <div class="col-auto text-center">
+              <div class="card mx-5 border border-primary">
                 <router-link :to="{ name: 'home' }">
-                  <div class="
-                      icon icon-shape
-                      shadow
-                      bg-gradient-success
-                      text-center
-                      border-radius-md
-                      card-img-top
-                    ">
-                    <i class="ni ni-tag text-lg opacity-10 icon-shape" aria-hidden="true"></i>
+                  <div class="px-3 py-2 ">
+                    <i class="bi bi-people-fill" style="font-size: 3rem; color: green;"></i>
                   </div>
                 </router-link>
               </div>
               <span class="d-inline-block text-truncate font-weight-bolder" style="max-width: 200px">
-                Teste
+                Usuários
               </span>
             </div>
           </div>
