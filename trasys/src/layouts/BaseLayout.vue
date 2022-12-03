@@ -34,7 +34,9 @@ export default {
                             </h5>
                         </div>
                         <div class="card-body">
-                            <slot class="body"></slot>
+                            <!-- inicio do slot corpo da página -->
+                            <slot class=""></slot>
+                            <!-- fim do slot corpo da página -->
                         </div>
                     </div>
                 </div>
