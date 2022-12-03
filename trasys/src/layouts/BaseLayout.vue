@@ -17,24 +17,25 @@ export default {
 </style>
 
 <template>
+
     <!-- <main class="h-100 vh-100" style="background-color: #eee;"> -->
-        <main class="main-content position-relative max-height-vh-100 h-100 mb-10" style="background-color: #eee;">
+    <main class="main-content position-relative max-height-vh-100 h-100 mb-10" style="background-color: #eee;">
+        <!-- <main class="" style="background-color: #e5e;"> -->
+
         <!-- Cabeçalho da base layout -->
-        <Header></Header>        
-        <div class="container-fluid py-4">
+
+        <Header></Header>
+        <div class="container-fluid py-4 ">
             <div class="row">
                 <div class="col-lg-12 m-0">
                     <div class="card border-0">
                         <div v-if="this.$route.path == '/'" class="card-header">
                             <h5 class="text-dark">
-                                <span class="fw-bold">{{ titlecard }}</span> 
-                                <!-- - {{this.$route.path}} -->
+                                <span class="fw-bold">{{ titlecard }}</span>
                             </h5>
                         </div>
                         <div class="card-body">
-                            <!-- slot conteúdo -->
                             <slot class="body"></slot>
-                            <!-- fim slot conteúdo -->
                         </div>
                     </div>
                 </div>
@@ -43,6 +44,7 @@ export default {
 
 
         <!-- Rodapé -->
-        <Footer style="background-color: #eee;"></Footer>
+        <Footer class=""></Footer>
     </main>
+
 </template>
