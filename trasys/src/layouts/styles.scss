@@ -3,6 +3,17 @@
 
 $primary: rgb(65, 218, 65);
 
+#main {
+    position: relative;
+    min-height: 100vh;
+}
+  
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;           /* altura do rodapé */
+}
+
 .body{
     background: #eee;
     height: 100vh !important;

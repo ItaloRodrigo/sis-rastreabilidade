@@ -2,7 +2,7 @@
   "name": "trasys",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --port 8000",
+    "dev": "vite --port 8003",
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom",

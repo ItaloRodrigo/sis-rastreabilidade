@@ -18,14 +18,13 @@ export default {
 
 <template>
 
-    <!-- <main class="h-100 vh-100" style="background-color: #eee;"> -->
-    <main class="main-content position-relative max-height-vh-100 h-100 mb-10" style="background-color: #eee;">
-        <!-- <main class="" style="background-color: #e5e;"> -->
+    <!-- <main id="main" class="main-content position-relative max-height-vh-100 h-100 mb-10" style="background-color: #eee;"> -->
+    <main id="main" style="background-color: #eee;">
 
         <!-- Cabeçalho da base layout -->
 
         <Header></Header>
-        <div class="container-fluid py-4 ">
+        <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-lg-12 m-0">
                     <div class="card border-0">
@@ -41,10 +40,10 @@ export default {
                 </div>
             </div>
         </div>
-
-
         <!-- Rodapé -->
-        <Footer class=""></Footer>
+        <div id="footer">
+            <Footer></Footer>
+        </div>
     </main>
 
 </template>
