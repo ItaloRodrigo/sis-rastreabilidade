@@ -9,13 +9,9 @@ export default defineStore({
   }),
   getters: {
     isAuth(state) {
-      let user = this.isLoged();
-      if(!user.loged){
-        state.user = null;
-      }
       return state.user != null;
     },
-    getUser(state){
+    getUser(state) {
       return state.user.user;
     },
     getName(state) {
@@ -43,25 +39,33 @@ export default defineStore({
         });
       return this.user;
     },
-    async logout(ctx={}) {
+    async logout(ctx = {}) {
       let data = null;
       await api(ctx)
-        .post("auth/logout", {id:this.user.user.id})
+        .post("auth/logout", { id: this.user.user.id })
         .then((res) => {
           data = res.data;
-        }).catch(e => console.log(ctx, e));
+        })
+        .catch((e) => console.log(ctx, e));
       this.user = null;
       return data;
     },
-    async isLoged(ctx={}){
-      console.log("teste");
-          // console.log(res.data);
-      await api(ctx)
-        .get("auth/isloged", {id:this.user.user.id})
-        .then((res) => {
-          
-          return res.data;
-        });
+    async isLoged(ctx = {}) {
+      if (this.user.user != null) {
+        let user = null;
+        await api(ctx)
+          .get("auth/isloged", {
+            params: {
+              id: this.user.user.id,
+            },
+          })
+          .then((res) => {
+            user = res.data;
+          })
+          .catch((e) => console.log(ctx, e));
+        return user;
+      }
+      return false;
     },
     async refresh() {},
     increment() {

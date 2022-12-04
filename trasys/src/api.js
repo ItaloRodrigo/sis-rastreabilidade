@@ -9,9 +9,9 @@ function api(ctx = null, download = false) {
         // localStorage.getItem("lang") || i18n.global.locale
         import.meta.env.VITE_I18N_LOCALE 
       ),
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-      'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+      // "Access-Control-Allow-Origin": "*",
+      // "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+      // 'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
       "Accept": "application/json"
     },
   };

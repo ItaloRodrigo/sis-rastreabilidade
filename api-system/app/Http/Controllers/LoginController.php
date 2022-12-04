@@ -64,16 +64,20 @@ class LoginController extends Controller
         // $id = $request->input('id');
 
         if($this->logged($id)['logged']){
-            return [
+            return response()->json([
                 "loged" => true,
                 "user" => $request->user(),
                 "token" => $request->user()->currentAccessToken(),
                 "tokens" => $this->logged($id)['tokens']
-            ];
+            ],
+            200
+            );
         }
-        return [
+        return response()->json([
             "loged" => false
-        ];
+        ],
+        200
+        );
     }
 
     private function logged($id){
