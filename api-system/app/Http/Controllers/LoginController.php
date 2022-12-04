@@ -31,7 +31,7 @@ class LoginController extends Controller
                 // "credentials" => $credentials,
                 "logged" => true,
                 "user" => $user,
-                "current_token" => $user->createToken("token")->plainTextToken,
+                "token" => $user->createToken("token")->plainTextToken,
                 "tokens" => User::find($user->id)->tokens(),
                 "message" => "ok"
             ],200);

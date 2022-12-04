@@ -4,27 +4,40 @@ export default {
   name: "ListUsuarios",
   data() {
     return {
-      usuarios: null
+      usuarios: null,
+      search:null
     }
   },
   mounted() {
-    this.listaUsuarios();
+    this.listaUsuarios(null);
+    console.log(this.usuarios);
   },
   methods: {
-    async listaUsuarios() {
+    async listaUsuarios(texto) {
       await api(this)
         .get("user/listusuarios",{})
         .then((res) => {
-          this.usuarios = res.usuarios;
+          this.usuarios = res.data.usuarios;
         })
         .catch((e) => console.log(this, e));
     },
     addUser() {
       // alert(this);
-      console.log(this)
+      console.log(("$auth" in this)?this.$auth.user.token:false)
     },
-    buscaUser() {
-      // alert("teste");
+    async buscaUser() {
+      console.log(this.search);
+      await api(this)
+        .get("user/listusuarios",{
+          params:{
+            text: this.search
+          }
+        })
+        .then((res) => {
+          this.usuarios = res.data.usuarios;
+          console.log(this.usuarios);
+        })
+        .catch((e) => console.log(this, e));
     }
   }
 }
@@ -47,7 +60,7 @@ export default {
               <span class="input-group-text" id="search">
                 <i class="bi bi-search"></i>
               </span>
-              <input type="search" @keyup="buscaUser" class="form-control" placeholder="search" aria-label="search"
+              <input type="search" v-model="search" @keyup="buscaUser" class="form-control" placeholder="search" aria-label="search"
                 aria-describedby="search">
             </div>
           </div>
@@ -62,16 +75,28 @@ export default {
               <th>Email</th>
               <th>Status</th>
               <th>Criado em</th>
+              <th>...</th>
             </tr>
           </thead>
-          <tbody>
-            <tr v-for="item in this.usuarios" :key="item.id">
+          <tbody >
+            <tr v-for="item in usuarios" :key="item.id">
               <th>{{item.id}}</th>
               <td>{{item.matricula}}</td>
               <td>{{item.name}}</td>
               <td>{{item.email}}</td>
               <td><span class="badge rounded-pill text-white text-bg-primary">Logado</span></td>
               <td>{{item.created_at}}</td>
+              <th>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Ações
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Editar</a></li>
+                    <li><a class="dropdown-item" href="#">Deletar</a></li>
+                  </ul>
+                </div>
+              </th>
             </tr>
           </tbody>
         </table>

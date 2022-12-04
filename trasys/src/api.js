@@ -16,9 +16,11 @@ function api(ctx = null, download = false) {
     },
   };
   if (ctx != null) {
-    if ("$auth" in ctx) config.headers["Authorization"] = ctx.$auth.token;
-    if ("token" in ctx) config.headers["Authorization"] = "Token " + ctx.token;
+    if ("$auth" in ctx) config.headers["Authorization"] = "Bearer " + ctx.$auth.user.token;
+    // if ("current_token" in ctx) config.headers["Authorization"] = "Token " + ctx.current_token;
   }
+  console.log("config");
+  console.log(config);
   if (download) {
     config["responseType"] = 'blob';
 }

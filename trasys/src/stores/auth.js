@@ -24,7 +24,7 @@ export default defineStore({
     },
     token(state) {
       // return state.user != null ? "Bearer " + state.user.access : "";
-      return state.user != null ? "Token " + state.user.current_token : "";
+      return state.user != null ? "Bearer " + state.user.token : "";
     },
     getCounter(state) {
       return state.counter;

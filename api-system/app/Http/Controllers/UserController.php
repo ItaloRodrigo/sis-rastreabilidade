@@ -6,6 +6,7 @@ use App\Http\Requests\RequestCreateUser;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Throwable;
@@ -37,6 +38,20 @@ class UserController extends Controller
     public function lisUsuarios(Request $request){
         try {
             $usuarios = User::all();
+            return response()->json([
+                "usuarios" => $usuarios
+            ], 200);
+        } catch (ValidationException $e) {
+            return response()->json(["erros" => "deu errado!"], 500);
+        }
+    }
+
+    public function getUsuarios(Request $request,$text){
+        try {
+            $usuarios = DB::table("user")
+                    // ->where("name","like",'$text'+"%")
+                    ->get();
+            // $usuarios = null;
             return response()->json([
                 "usuarios" => $usuarios
             ], 200);
