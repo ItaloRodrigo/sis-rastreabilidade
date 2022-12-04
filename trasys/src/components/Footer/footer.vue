@@ -8,8 +8,8 @@ export default {
 
 <template>
     <div class="container-fluid bg-white border-top">
-        <div class="row pt-5 px-2 ">
-            <div class="col-lg-3">
+        <div class="row">
+            <div class="col-lg-3 py-5 px-3 ">
                 <figure class="figure p-0 m-0 text-center">
                     <img src="/assets/intelbras-logov.png" alt="Logo da Intelbras" style="width: 100px;">
                     <figcaption class="figure-caption text-muted " style="font-size:0.7em;">
@@ -34,7 +34,7 @@ export default {
                     </p>
                 </div>
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-9 py-5 px-3 ">
                 <h5>Links</h5>
             </div>
         </div>

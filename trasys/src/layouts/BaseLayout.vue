@@ -18,8 +18,8 @@ export default {
 
 <template>
 
-    <!-- <main id="main" class="main-content position-relative max-height-vh-100 h-100 mb-10" style="background-color: #eee;"> -->
-    <main id="main" style="background-color: #eee;">
+    <main class="main-content position-relative max-height-vh-100 h-100 mb-10" style="background-color: #eee;">
+    <!-- <main id="main" style="background-color: #eee;"> -->
 
         <!-- Cabeçalho da base layout -->
 
@@ -28,7 +28,7 @@ export default {
             <div class="row">
                 <div class="col-lg-12 m-0">
                     <div class="card border-0">
-                        <div v-if="this.$route.path == '/'" class="card-header">
+                        <div class="card-header">
                             <h5 class="text-dark">
                                 <span class="fw-bold">{{ titlecard }}</span>
                             </h5>
@@ -43,9 +43,9 @@ export default {
             </div>
         </div>
         <!-- Rodapé -->
-        <div id="footer">
+        <!-- <div id="">
             <Footer></Footer>
-        </div>
+        </div> -->
     </main>
 
 </template>

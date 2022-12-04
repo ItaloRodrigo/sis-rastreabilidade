@@ -23,7 +23,7 @@ export default {
             <!-- Usuários -->
             <div class="col-auto text-center">
               <div class="card mx-5 border border-primary">
-                <router-link :to="{ name: 'home' }">
+                <router-link :to="{ name: 'usuarios' }">
                   <div class="px-3 py-2 ">
                     <i class="bi bi-people-fill" style="font-size: 3rem; color: green;"></i>
                   </div>
