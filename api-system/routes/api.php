@@ -31,6 +31,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
+    Route::prefix('user')->group(function(){
+        Route::get('listusuarios', [UserController::class,'lisUsuarios']);
+    });
+
     Route::prefix('auth')->group(function(){
         Route::get('isloged/{id}', [LoginController::class,'isLoged']);
     });

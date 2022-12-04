@@ -34,6 +34,17 @@ class UserController extends Controller
         }
     }
 
+    public function lisUsuarios(Request $request){
+        try {
+            $usuarios = User::all();
+            return response()->json([
+                "usuarios" => $usuarios
+            ], 200);
+        } catch (ValidationException $e) {
+            return response()->json(["erros" => "deu errado!"], 500);
+        }
+    }
+
     public function teste()
     {
         return "ok";
