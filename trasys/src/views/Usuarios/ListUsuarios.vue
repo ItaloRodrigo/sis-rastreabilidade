@@ -28,13 +28,9 @@ export default {
     async buscaUser() {
       console.log(this.$auth.token);
       await api(this)
-        .get("user/getusuarios",{
-          params:{
-            text: this.search
-          }
-        })
+        .get("user/getusuarios/"+this.search)
         .then((res) => {
-          // this.usuarios = res.data.usuarios;
+          this.usuarios = res.data.usuarios;
           console.log(res.data.usuarios);
         })
         .catch((e) => console.log(this, e));

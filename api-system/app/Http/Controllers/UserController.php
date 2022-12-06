@@ -50,7 +50,7 @@ class UserController extends Controller
         try {
             $users = DB::table("user")
                     // ->where("name","like","'ita%'")
-                    ->whereRaw("name like 'iro%'")
+                    ->whereRaw("name like '$text%'")
                     ->get();
             // $usuarios = null;
             return response()->json([
