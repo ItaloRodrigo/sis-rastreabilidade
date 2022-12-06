@@ -48,12 +48,13 @@ class UserController extends Controller
 
     public function getUsuarios(Request $request,$text){
         try {
-            $usuarios = DB::table("user")
-                    // ->where("name","like",'$text'+"%")
+            $users = DB::table("user")
+                    // ->where("name","like","'ita%'")
+                    ->whereRaw("name like 'iro%'")
                     ->get();
             // $usuarios = null;
             return response()->json([
-                "usuarios" => $usuarios
+                "usuarios" => $users
             ], 200);
         } catch (ValidationException $e) {
             return response()->json(["erros" => "deu errado!"], 500);

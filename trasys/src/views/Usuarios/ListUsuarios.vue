@@ -26,16 +26,16 @@ export default {
       console.log(("$auth" in this)?this.$auth.user.token:false)
     },
     async buscaUser() {
-      console.log(this.search);
+      console.log(this.$auth.token);
       await api(this)
-        .get("user/listusuarios",{
+        .get("user/getusuarios",{
           params:{
             text: this.search
           }
         })
         .then((res) => {
-          this.usuarios = res.data.usuarios;
-          console.log(this.usuarios);
+          // this.usuarios = res.data.usuarios;
+          console.log(res.data.usuarios);
         })
         .catch((e) => console.log(this, e));
     }
