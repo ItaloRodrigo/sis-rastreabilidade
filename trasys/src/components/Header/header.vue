@@ -11,7 +11,6 @@ export default {
     },
     mounted(){
         this.username = (this.$auth.isAuth)?this.$auth.getName:"-";
-        console.log(this.$auth.isAuth);
     },
     methods: {
         logout() {

@@ -8,7 +8,9 @@ export default {
     data() {
         return {};
     },
-
+    mounted(){
+        // alert("teste");
+    }
 }
 </script>
 

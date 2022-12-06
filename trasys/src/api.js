@@ -19,8 +19,6 @@ function api(ctx = null, download = false) {
     if ("$auth" in ctx) config.headers["Authorization"] = "Bearer " + ctx.$auth.user.token;
     // if ("current_token" in ctx) config.headers["Authorization"] = "Token " + ctx.current_token;
   }
-  console.log("config");
-  console.log(config);
   if (download) {
     config["responseType"] = 'blob';
 }

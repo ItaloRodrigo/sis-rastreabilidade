@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { api, except } from "../api";
+// import Cookies from "js-cookie";
 
 export default defineStore({
   id: "auth",
@@ -9,6 +10,9 @@ export default defineStore({
   }),
   getters: {
     isAuth(state) {
+      // console.log("object");
+      // console.log(this);
+      // return this.isLoged() != null;
       return state.user != null;
     },
     getUser(state) {
@@ -50,20 +54,15 @@ export default defineStore({
       this.user = null;
       return data;
     },
-    async isLoged(ctx = {}) {
+    async isLoged() {
       if (this.user.user != null) {
-        let user = null;
-        await api(ctx)
-          .get("auth/isloged", {
-            params: {
-              id: this.user.user.id,
-            },
-          })
+        await api(this)
+          .get("auth/isloged/"+this.user.user.id)
           .then((res) => {
-            user = res.data;
+            this.user = res.data;
+            return true;
           })
-          .catch((e) => console.log(ctx, e));
-        return user;
+          .catch((e) => console.log(this, e));
       }
       return false;
     },

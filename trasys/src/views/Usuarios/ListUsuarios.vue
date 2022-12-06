@@ -1,6 +1,11 @@
 <script scoped>
 import { api, except } from "../../api";
+import PaginationVue from "../../components/Pages/Pagination.vue";
+
 export default {
+  components:{
+    PaginationVue
+  },
   name: "ListUsuarios",
   data() {
     return {
@@ -9,11 +14,10 @@ export default {
     }
   },
   mounted() {
-    this.listaUsuarios(null);
-    console.log(this.usuarios);
+    this.listaUsuarios();
   },
   methods: {
-    async listaUsuarios(texto) {
+    async listaUsuarios() {
       await api(this)
         .get("user/listusuarios",{})
         .then((res) => {
