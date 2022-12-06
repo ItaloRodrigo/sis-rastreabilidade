@@ -10,7 +10,8 @@ export default {
   data() {
     return {
       usuarios: null,
-      search:null
+      search:null,
+      pages:0
     }
   },
   mounted() {
@@ -22,6 +23,7 @@ export default {
         .get("user/listusuarios",{})
         .then((res) => {
           this.usuarios = res.data.usuarios;
+          this.pages = this.usuarios.length;
         })
         .catch((e) => console.log(this, e));
     },
@@ -30,14 +32,21 @@ export default {
       console.log(("$auth" in this)?this.$auth.user.token:false)
     },
     async buscaUser() {
-      console.log(this.$auth.token);
-      await api(this)
+      if(this.search == null || this.search == ""){
+        this.listaUsuarios();
+      }else{
+        await api(this)
         .get("user/getusuarios/"+this.search)
         .then((res) => {
           this.usuarios = res.data.usuarios;
-          console.log(res.data.usuarios);
+          this.pages = this.usuarios.length;
         })
         .catch((e) => console.log(this, e));
+      }
+      
+    },
+    loadList(i){
+      console.log("["+i+"]");
     }
   }
 }
@@ -100,6 +109,7 @@ export default {
             </tr>
           </tbody>
         </table>
+        <PaginationVue :pages="this.pages" :loadList="loadList"></PaginationVue>
       </div>
     </div>
   </base-layout>
