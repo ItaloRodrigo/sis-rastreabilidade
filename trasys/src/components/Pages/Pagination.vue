@@ -30,7 +30,7 @@ export default {
         <nav aria-label="..." class="">
             <ul class="pagination pagination-md justify-content-end m-0">
                 <section v-for="i in pages" :key="i">
-
+<!--  -->
                     <li class="page-item active" aria-current="page" @click="go_to_page(i)" v-if="(i == clicked)">
                         <span class="page-link">{{ i }}</span>
                     </li>
