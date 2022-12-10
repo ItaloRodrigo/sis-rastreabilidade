@@ -20,7 +20,7 @@ export default {
   methods: {
     async listaUsuarios() {
       await api(this)
-        .get("user/listusuarios",{})
+        .get("user/listusuarios")
         .then((res) => {
           this.usuarios = res.data.usuarios;
           this.pages = this.usuarios.length;
@@ -45,7 +45,14 @@ export default {
       }
       
     },
-    loadList(i){
+    async loadList(i){
+      await api(this)
+        .get("user/pagination/"+i)
+        .then((res) => {
+          this.usuarios = res.data.usuarios;
+          // this.pages = this.usuarios.length;
+        })
+        .catch((e) => console.log(this, e));
       console.log("["+i+"]");
     }
   }

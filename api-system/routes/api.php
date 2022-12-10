@@ -37,6 +37,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::prefix('user')->group(function(){
         Route::get('listusuarios', [UserController::class,'lisUsuarios']);
+        Route::get('pagination/{page}', [UserController::class,'pagination']);
         Route::get('getusuarios/{text}', [UserController::class,'getUsuarios']);
     });
 

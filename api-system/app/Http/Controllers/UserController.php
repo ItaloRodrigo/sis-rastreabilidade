@@ -46,6 +46,20 @@ class UserController extends Controller
         }
     }
 
+    public function pagination(Request $request,$page){
+        try {
+            // 10 linhas por page
+            $start = $page*10;
+            $end = $start+10;
+            $usuarios = DB::table("user")->limit($start,$end)->get();
+            return response()->json([
+                "usuarios" => $usuarios
+            ], 200);
+        } catch (ValidationException $e) {
+            return response()->json(["erros" => "deu errado!"], 500);
+        }
+    }
+
     public function getUsuarios(Request $request,$text){
         try {
             $users = DB::table("user")
