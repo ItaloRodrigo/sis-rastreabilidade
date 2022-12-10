@@ -34,7 +34,7 @@ export default {
                     <li class="page-item active" aria-current="page" @click="go_to_page(i)" v-if="(i == clicked)">
                         <span class="page-link">{{ i }}</span>
                     </li>
-                    <!-- go_to_page() -->
+                    <!-- go_to_page(i) -->
                     <li class="page-item" v-else @click="go_to_page(i)"><a class="page-link" href="#">{{ i }}</a></li>
                 </section>
             </ul>
