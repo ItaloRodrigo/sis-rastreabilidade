@@ -56,7 +56,16 @@ class UserController extends Controller
              */
             $offset = ($page*10)-10;
             $count = DB::table("user")->count();
-            $usuarios = DB::table("user")->offset($offset)->limit(10)->get();
+            //---
+            $usuarios = DB::table("user")
+                            // ->leftJoin('personal_access_tokens as p', 'user.id', '=', 'p.tokenable_id')
+                            ->select('*',(
+                                DB::raw('(
+                                    select date_format(last_used_at,"%d/%m/%Y %h:%i:%s") from personal_access_tokens as p
+                                    where p.tokenable_id = user.id
+                                ) as last_access')
+                            ))
+                            ->offset($offset)->limit(10)->get();
             // $usuarios = DB::table("user")->paginate(10);
             return response()->json([
                 "usuarios" => $usuarios,

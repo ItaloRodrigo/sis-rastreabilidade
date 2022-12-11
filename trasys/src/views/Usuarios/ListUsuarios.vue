@@ -42,8 +42,7 @@ export default {
           // this.pages = res.data.count;
         })
         .catch((e) => console.log(this, e));
-      }
-      
+      }      
     },
     async loadList(i){
       await api(this)
@@ -82,14 +81,14 @@ export default {
           </div>
         </div>
         <!-- tabela de usuários -->
-        <table class="table table-striped table-lg ">
+        <table class="table table-striped table-lg mt-3">
           <thead>
             <tr>
               <th>#</th>
               <th>Matrícula</th>
               <th>Nome</th>
               <th>Email</th>
-              <th>Status</th>
+              <th>Último Login</th>
               <th>Criado em</th>
               <th>...</th>
             </tr>
@@ -100,7 +99,14 @@ export default {
               <td>{{item.matricula}}</td>
               <td>{{item.name}}</td>
               <td>{{item.email}}</td>
-              <td><span class="badge rounded-pill text-white text-bg-primary">Logado</span></td>
+              <td>
+                <span v-if="item.last_access">
+                  {{item.last_access}}
+                </span>
+                <span v-else>
+                  <span class="badge text-bg-light">deslogado</span>
+                </span>
+              </td>
               <td>{{item.created_at}}</td>
               <th>
                 <div class="btn-group" role="group">
