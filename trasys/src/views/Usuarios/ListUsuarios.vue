@@ -15,7 +15,7 @@ export default {
     }
   },
   mounted() {
-    this.listaUsuarios();
+    this.loadList(1);
   },
   methods: {
     async listaUsuarios() {
@@ -33,13 +33,13 @@ export default {
     },
     async buscaUser() {
       if(this.search == null || this.search == ""){
-        this.listaUsuarios();
+        this.loadList(1);
       }else{
         await api(this)
         .get("user/getusuarios/"+this.search)
         .then((res) => {
           this.usuarios = res.data.usuarios;
-          this.pages = this.usuarios.length;
+          // this.pages = res.data.count;
         })
         .catch((e) => console.log(this, e));
       }
@@ -50,7 +50,7 @@ export default {
         .get("user/pagination/"+i)
         .then((res) => {
           this.usuarios = res.data.usuarios;
-          // this.pages = this.usuarios.length;
+          this.pages = res.data.count;
         })
         .catch((e) => console.log(this, e));
       console.log("["+i+"]");

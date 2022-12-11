@@ -6,13 +6,14 @@ export default {
     ],
     data() {
         return {
-            clicked: 2,
+            clicked: 1,
             total: 1
         }
     },
     mounted(){
         // this.total = parseInt(this.pages/10);
-        // console.log(this.total);
+        console.log(Math.ceil(this.pages/10));
+        
     },
     methods: {
         go_to_page(i) {
@@ -28,7 +29,7 @@ export default {
     <div class="container-fluid py-2">
         <nav aria-label="..." class="">
             <ul class="pagination pagination-md justify-content-end m-0">
-                <template v-for="i in parseInt(this.pages/10)" :key="i" >
+                <template v-for="i in Math.ceil(this.pages/10)" :key="i" >
                     <!-- go_to_page -->
                     
                     <li class="page-item active" aria-current="page" @click="go_to_page(i)" v-if="(i == clicked)">

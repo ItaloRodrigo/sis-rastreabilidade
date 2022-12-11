@@ -49,11 +49,18 @@ class UserController extends Controller
     public function pagination(Request $request,$page){
         try {
             // 10 linhas por page
-            $start = $page*10;
-            $end = $start+10;
-            $usuarios = DB::table("user")->limit($start,$end)->get();
+            /**
+             * 1 - 10
+             * 10 - 20
+             * 20 - 30
+             */
+            $offset = ($page*10)-10;
+            $count = DB::table("user")->count();
+            $usuarios = DB::table("user")->offset($offset)->limit(10)->get();
+            // $usuarios = DB::table("user")->paginate(10);
             return response()->json([
-                "usuarios" => $usuarios
+                "usuarios" => $usuarios,
+                "count" => $count
             ], 200);
         } catch (ValidationException $e) {
             return response()->json(["erros" => "deu errado!"], 500);
