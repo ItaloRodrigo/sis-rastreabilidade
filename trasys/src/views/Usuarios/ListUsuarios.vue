@@ -1,10 +1,12 @@
 <script scoped>
 import { api, except } from "../../api";
 import PaginationVue from "../../components/Pages/Pagination.vue";
+import ModalUsuarioVue from "./components/ModalUsuario.vue";
 
 export default {
   components:{
-    PaginationVue
+    PaginationVue,
+    ModalUsuarioVue
   },
   name: "ListUsuarios",
   data() {
@@ -68,6 +70,7 @@ export default {
             <button class="p-0 btn btn-primary float-end" @click="addUser">
               <i class="bi bi-person-add px-2" style="font-size: 1.5rem; "></i>
             </button>
+            <ModalUsuarioVue></ModalUsuarioVue>
           </div>
           <!-- Campo de busca -->
           <div class="col-lg-3 col-sm-12 col-md-6">
