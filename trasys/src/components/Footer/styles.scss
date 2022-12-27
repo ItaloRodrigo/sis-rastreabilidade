@@ -11,3 +11,14 @@
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, #86ee24, #36d8af, #3cdd36, #5db445);
   }
+
+  .main-content{
+    .the-footer {
+      position: fixed;
+      background: white;
+      bottom: 0;
+      width: calc(100% - 260px);
+      box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, .05);
+      z-index: 40000;
+    }
+  }

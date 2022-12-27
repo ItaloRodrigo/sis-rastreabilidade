@@ -45,9 +45,7 @@ export default {
             </div>
         </div>
         <!-- Rodapé -->
-        <!-- <div id="">
-            <Footer></Footer>
-        </div> -->
+        <!-- <Footer></Footer> -->
     </main>
 
 </template>
