@@ -21,7 +21,7 @@ function api(ctx = null, download = false) {
   }
   if (download) {
     config["responseType"] = 'blob';
-}
+  }
   return axios.create(config);
 }
 function except(ctx, erro, erroIgnore = null) {
