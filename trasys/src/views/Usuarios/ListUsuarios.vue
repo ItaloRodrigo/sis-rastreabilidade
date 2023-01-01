@@ -108,7 +108,7 @@ export default {
                   {{item.last_access}}
                 </span>
                 <span v-else>
-                  <span class="badge text-bg-light">deslogado</span>
+                  <span class="badge text-bg-danger">deslogado</span>
                 </span>
               </td>
               <td>{{item.created_at}}</td>

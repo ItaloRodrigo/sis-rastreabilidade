@@ -40,10 +40,10 @@ export default {
                 <div class="modal-body">
                     <slot></slot>
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" @click="openCloseFun()">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

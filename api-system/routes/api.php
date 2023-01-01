@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('user')->group(function(){
     Route::get('teste', [UserController::class,'teste']);
-    Route::post('create', [UserController::class,'create']);
+
     // Route::get('getusuarios/{text}', function (Request $request, $text){
     //     return $text;
     // });
@@ -36,6 +36,7 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::prefix('user')->group(function(){
+        Route::post('create', [UserController::class,'create']);
         Route::get('listusuarios', [UserController::class,'lisUsuarios']);
         Route::get('pagination/{page}', [UserController::class,'pagination']);
         Route::get('getusuarios/{text}', [UserController::class,'getUsuarios']);
