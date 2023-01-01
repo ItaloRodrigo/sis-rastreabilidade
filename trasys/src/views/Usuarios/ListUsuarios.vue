@@ -1,12 +1,12 @@
 <script scoped>
 import { api, except } from "../../api";
 import PaginationVue from "../../components/Pages/Pagination.vue";
-import ModalUsuarioVue from "./components/ModalUsuario.vue";
+import ModalDefault from "../../components/Pages/ModalDefault.vue";
 
 export default {
   components:{
     PaginationVue,
-    ModalUsuarioVue
+    ModalDefault
   },
   name: "ListUsuarios",
   data() {
@@ -31,9 +31,7 @@ export default {
         .catch((e) => console.log(this, e));
     },
     addUser() {
-      // alert(this);
-      this.modalstate = !this.modalstate;
-      // this.updates;
+      this.$refs.modal.openCloseFun();
       console.log(("$auth" in this)?this.$auth.user.token:false)
     },
     async buscaUser() {
@@ -73,7 +71,9 @@ export default {
             <button class="p-0 btn btn-primary float-end" @click="addUser">
               <i class="bi bi-person-add px-2" style="font-size: 1.5rem; "></i>
             </button>
-            <ModalUsuarioVue :modalstate="modalstate"></ModalUsuarioVue>
+            <ModalDefault ref="modal" :visible="false">
+              <p>teste</p>
+            </ModalDefault>
           </div>
           <!-- Campo de busca -->
           <div class="col-lg-3 col-sm-12 col-md-6">
