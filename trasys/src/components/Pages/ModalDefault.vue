@@ -4,10 +4,10 @@ export default {
         visible: Boolean,
         title:{
             type: String,
-            default:"Modal Default"
+            default:"Modal Default Vue"
         }
     },
-    name: "ModalDefault",
+    name: "ModalDefaultVue",
     data() {
         return {
             openClose: this.visible
@@ -31,7 +31,7 @@ export default {
     <!-- Modal -->
     <div v-if="openClose" class="modal fade show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true"
         role="dialog" style="display:block;">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-xl"> 
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">{{title}}</h1>
