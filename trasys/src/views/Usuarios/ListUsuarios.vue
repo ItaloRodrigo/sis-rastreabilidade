@@ -32,8 +32,8 @@ export default {
     },
     addUser() {
       // alert(this);
-      // this.modalstate = !this.modalstate;
-      this.$refs['modalUsuario'].show();
+      this.modalstate = !this.modalstate;
+      // this.updates;
       console.log(("$auth" in this)?this.$auth.user.token:false)
     },
     async buscaUser() {
@@ -73,7 +73,7 @@ export default {
             <button class="p-0 btn btn-primary float-end" @click="addUser">
               <i class="bi bi-person-add px-2" style="font-size: 1.5rem; "></i>
             </button>
-            <ModalUsuarioVue @active="modalstate"></ModalUsuarioVue>
+            <ModalUsuarioVue :modalstate="modalstate"></ModalUsuarioVue>
           </div>
           <!-- Campo de busca -->
           <div class="col-lg-3 col-sm-12 col-md-6">
