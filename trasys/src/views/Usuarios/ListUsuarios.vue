@@ -19,6 +19,10 @@ export default {
   },
   mounted() {
     this.loadList(1);
+    console.log("teste!");
+  },
+  updated(){
+    console.log("updated");
   },
   methods: {
     async listaUsuarios() {
@@ -32,6 +36,7 @@ export default {
     },
     addUser() {
       this.$refs.modal.openModal();
+      this.$forceUpdate();
       console.log(("$auth" in this)?this.$auth.user.token:false)
     },
     async buscaUser() {
@@ -55,7 +60,7 @@ export default {
           this.pages = res.data.count;
         })
         .catch((e) => console.log(this, e));
-      console.log("["+i+"]");
+      // console.log("["+i+"]");
     }
   }
 }
@@ -71,7 +76,7 @@ export default {
             <button class="p-0 btn btn-primary float-end" @click="addUser">
               <i class="bi bi-person-add px-2" style="font-size: 1.5rem; "></i>
             </button>
-            <ModalUsuarioVue ref="modal"></ModalUsuarioVue>
+            <ModalUsuarioVue ref="modal" :owner="this"></ModalUsuarioVue>
           </div>
           <!-- Campo de busca -->
           <div class="col-lg-3 col-sm-12 col-md-6">

@@ -5,7 +5,7 @@ export default {
         title:{
             type: String,
             default:"Modal Default Vue"
-        }
+        },
     },
     name: "ModalDefaultVue",
     data() {
@@ -16,6 +16,9 @@ export default {
     methods: {
         openCloseFun() {
             this.openClose = !this.openClose;
+            // if(owner != null){
+            //     owner.$forceUpdate();
+            // }            
         }
     },
     watch: {
