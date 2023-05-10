@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  apisystem:
+    image: apisystem
+    build:
+      context: .
+      dockerfile: ./Dockerfile
